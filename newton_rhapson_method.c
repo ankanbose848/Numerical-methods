@@ -36,4 +36,6 @@ void main()
     count++;
     printf("%d\t   %2.4f\t  %2.4f\n", count, x1, f1);
   }while(fabs(f1) > e);
+
+  printf("The value of root is %2.4f\n", x1);
 }
