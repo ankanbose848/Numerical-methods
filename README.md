@@ -12,6 +12,7 @@ This is a repository that contains codes for the different algorithms of Numeric
   7. Newton Forward Interpolation
   8. Newton Backward Interpolation
   9. Numerical Integration using Trapezoidal Rule
-  10. System of Linear Equations
+  10. Numerical Integration using Simpson's 1/3 Rule
+  11. System of Linear Equations
   
 ## Language used: C
