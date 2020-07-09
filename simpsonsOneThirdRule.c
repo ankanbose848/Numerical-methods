@@ -1,41 +1,39 @@
-/* Program Simpson’s 1/3 rule
-   Program to find the value of integration of a function
-   f(x) using Simpson’s 1/3 rule. Here we assume that 
-   f(x) = x^2. */
  
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<math.h>
 
-float f(float x)
-{
- return(x*x);
+float f(float x){
+	return (x*x);
 }
 
-
-
-void main()
-{
- float f(float);
- float a,b,h,sum;
- int i,n;
- printf("Enter the values of a,b: ");
- scanf("%f%f",&a,&b);
- printf("Enter the value of n: ");
- scanf("%d",&n);
- if(n%2!=0)
- {
- printf("\nNumber of subdivision should be even\n");
- exit(0);
- }
- h=(b-a)/n;
- sum = f(a)-f(a+n*h);
- for(i=1;i<n;i++)
- sum += 4*f(a+i*h)+2*f(a+(i+1)*h);
- sum *= h/3;
- printf("\nValue of the integration is %f\n",sum);
+int main(){
+	
+	float a,b,n,h,sum1=0,sum2=0,sum,y0,yn;
+	int i;
+	
+	printf("Enter the upper limit : ");
+	scanf("%f",&b);
+	printf("Enter the lower limit : ");
+	scanf("%f",&a);
+	printf("Enter the number of intervals : ");
+	scanf("%f",&n);
+	
+	//step length
+	h=(b-a)/n;
+	
+	y0=f(a+0*h);
+	yn=f(a+n*h);
+	
+	for(i=1; i<n; i++)
+		if(i%2 == 0)
+			sum1 = sum1 + f(a+i*h);
+		else
+			sum2 = sum2 + f(a+i*h);
+	
+	sum =(h/3)*(y0 + yn + 2*sum1 +4*sum2);
+	
+	printf("Answer : %.2f",sum);
+	
+	
+	return 0;
 }
- 
-/*float f(float x)
-{
- return(x*x);
-}*/
